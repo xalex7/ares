@@ -16,15 +16,21 @@ struct ExperienceView: View {
 
 struct ARViewContainer: UIViewRepresentable {
     
+    let firstExpAnchor = try! Experiences.loadFirstEx()
+    let secondExpAnchor = try! Experiences.loadSecondEx()
+    let thirdExpAnchor = try! Experiences.loadThirdEx()
+    let fourthExpAnchor = try! Experiences.loadFourthEx()
+    let fifthExpAnchor = try! Experiences.loadFifthEx()
+    
     func makeUIView(context: Context) -> ARView {
         
         let arView = ARView(frame: .zero)
         
         // Load the "Box" scene from the "Experience" Reality File
-        let boxAnchor = try! Experiences.loadFirstEx()
+        //let firstExpAnchor = try! Experiences.loadFirstEx()
         
         // Add the box anchor to the scene
-        arView.scene.anchors.append(boxAnchor)
+        arView.scene.anchors.append(firstExpAnchor)
         
         return arView
         
