@@ -29,8 +29,8 @@ struct ExperienceDetailView: View {
             AppButton(buttonText: "Start", buttonColor: .cyan) {
                 isExpVisible.toggle()
             }
-            NavigationLink(destination: ExperienceView(), isActive: $isExpVisible) {
-                
+            NavigationLink(destination: ExperienceView(myModel: ExperienceModel(activeExperience: experienceItem.arExp)), isActive: $isExpVisible) {
+
             }
         }
     }
