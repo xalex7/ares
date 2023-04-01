@@ -7,10 +7,11 @@
 
 import Foundation
 import RealityKit
+import ARKit
 
 class ExperienceModel {
-//    var timer: Timer
-//    var completed: Bool
+    //    var timer: Timer
+    //    var completed: Bool
     let activeExperience: ARExperiences
     let activeScene: Scene.AnchorCollection.Element
     
@@ -29,15 +30,31 @@ class ExperienceModel {
                 return try! Experiences.loadFourthEx()
             case .fifth:
                 return try! Experiences.loadFifthEx()
-//            default:
-//                return try! Experiences.loadFirstEx()
+                //            default:
+                //                return try! Experiences.loadFirstEx()
+            }
+        }
+        
+        var coachingGoal: ARCoachingOverlayView.Goal {
+            switch self {
+            case .first:
+                return .horizontalPlane
+            case .second:
+                return .horizontalPlane
+            case .third:
+                return .verticalPlane
+            case .fourth:
+                return .verticalPlane
+            case .fifth:
+                return .horizontalPlane
+                
             }
         }
     }
     
     init(activeExperience: ARExperiences) {
-//        self.timer = timer
-//        self.completed = completed
+        //        self.timer = timer
+        //        self.completed = completed
         self.activeExperience = activeExperience
         self.activeScene = self.activeExperience.scene
     }

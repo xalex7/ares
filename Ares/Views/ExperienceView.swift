@@ -7,6 +7,7 @@
 
 import SwiftUI
 import RealityKit
+import ARKit
 
 struct ExperienceView: View {
     
@@ -14,6 +15,18 @@ struct ExperienceView: View {
     
     var body: some View {
         ARViewContainer(myModel: myModel).edgesIgnoringSafeArea(.all)
+    }
+}
+
+extension ARView {
+    func addCoaching(goal: ARCoachingOverlayView.Goal) {
+
+        let coachingOverlay = ARCoachingOverlayView()
+        coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        coachingOverlay.goal = goal
+        coachingOverlay.session = session
+        addSubview(coachingOverlay)
+        coachingOverlay.setActive(true, animated: true)
     }
 }
 
@@ -38,6 +51,7 @@ struct ARViewContainer: UIViewRepresentable {
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(myModel.activeScene)
+        arView.addCoaching(goal: myModel.activeExperience.coachingGoal)
         
         return arView
         
