@@ -8,12 +8,17 @@
 import Foundation
 import RealityKit
 import ARKit
+import Combine
 
-class ExperienceModel {
-    //    var timer: Timer
-    //    var completed: Bool
+class ExperienceModel: ObservableObject {
+
     let activeExperience: ARExperiences
     let activeScene: Scene.AnchorCollection.Element
+    var createdListItem: ListItem
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @Published var expDuration: Int
+    
+    var timerSubscriber: AnyCancellable?
     
     enum ARExperiences {
         case first, second, third, fourth, fifth
@@ -30,8 +35,6 @@ class ExperienceModel {
                 return try! Experiences.loadFourthEx()
             case .fifth:
                 return try! Experiences.loadFifthEx()
-                //            default:
-                //                return try! Experiences.loadFirstEx()
             }
         }
         
@@ -50,12 +53,24 @@ class ExperienceModel {
                 
             }
         }
+
     }
     
-    init(activeExperience: ARExperiences) {
-        //        self.timer = timer
+    init(listItem: ListItem) {
+        
         //        self.completed = completed
-        self.activeExperience = activeExperience
-        self.activeScene = self.activeExperience.scene
+        createdListItem = listItem
+        activeExperience = listItem.arExp
+        activeScene = activeExperience.scene
+        expDuration = listItem.duartion
+        
+        timerSubscriber = timer.sink(receiveValue: { [unowned self] _ in
+            if expDuration > 0 {
+                expDuration -= 1
+            } else {
+                print("hello")
+                // MARK: I need to change the value of `Completed` from false to True
+            }
+        })
     }
 }

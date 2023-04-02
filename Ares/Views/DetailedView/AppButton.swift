@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AppButton: View {
     
-    //func arachnophbia() {}
     var buttonText: String
     var buttonColor: Color
     var buttonPressed: (()->Void)? // Provideing this whole is optional

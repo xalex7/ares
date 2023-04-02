@@ -9,18 +9,26 @@ import SwiftUI
 import RealityKit
 import ARKit
 
+
 struct ExperienceView: View {
     
-    let myModel: ExperienceModel
+    @ObservedObject var myModel: ExperienceModel
+    // You're observing changes to the model not the property
+    
     
     var body: some View {
-        ARViewContainer(myModel: myModel).edgesIgnoringSafeArea(.all)
+        ARViewContainer(activeModel: myModel).edgesIgnoringSafeArea(.all)
+        
+        //@State var expDuration = myModel.activeExperience.expDuration
+        // MARK: Would it be better if I use an Observed Object from detailed view so I can change the value of both `Completed` and `Duration`
+
+        Text("To Complete \(myModel.expDuration)").foregroundColor(Color(.white))
     }
 }
 
 extension ARView {
     func addCoaching(goal: ARCoachingOverlayView.Goal) {
-
+        
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         coachingOverlay.goal = goal
@@ -33,25 +41,17 @@ extension ARView {
 
 
 struct ARViewContainer: UIViewRepresentable {
-    let myModel: ExperienceModel
+    let activeModel: ExperienceModel
 
-    
-    // Load the "Box" scene from the "Experience" Reality File
-//    let firstExpAnchor = try! Experiences.loadFirstEx()
-//    let secondExpAnchor = try! Experiences.loadSecondEx()
-//    let thirdExpAnchor = try! Experiences.loadThirdEx()
-//    let fourthExpAnchor = try! Experiences.loadFourthEx()
-//    let fifthExpAnchor = try! Experiences.loadFifthEx()
-    
-    
     func makeUIView(context: Context) -> ARView {
         
         let arView = ARView(frame: .zero)
         
+        arView.addCoaching(goal: activeModel.activeExperience.coachingGoal)
         
         // Add the box anchor to the scene
-        arView.scene.anchors.append(myModel.activeScene)
-        arView.addCoaching(goal: myModel.activeExperience.coachingGoal)
+        arView.scene.anchors.append(activeModel.activeScene)
+        
         
         return arView
         
@@ -63,6 +63,6 @@ struct ARViewContainer: UIViewRepresentable {
 
 struct ExperienceView_Previews: PreviewProvider {
     static var previews: some View {
-        ExperienceView(myModel: ExperienceModel(activeExperience: .first))
+        ExperienceView(myModel: ExperienceModel(listItem: ListModel().list.first! ))
     }
 }

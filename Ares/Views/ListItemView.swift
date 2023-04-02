@@ -25,7 +25,9 @@ struct ListItemView: View {
                         .font(.title)
                         .foregroundColor(.accentColor)
                         .fontWeight(.bold)
+                    Text("Period \(listItem.duartion) Seconds")
                     IntensityView(intensityRange: listItem.intensity)
+                    Text("Completed: \(String(listItem.completed))")
                         .font(.title2)
                 }
             }
