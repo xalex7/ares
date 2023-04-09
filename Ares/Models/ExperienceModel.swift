@@ -17,8 +17,24 @@ class ExperienceModel: ObservableObject {
     var createdListItem: ListItem
     let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Published var expDuration: Int
+    @Published var expCompleted: Bool
     
     var timerSubscriber: AnyCancellable?
+    
+    func startTimer() {
+        timerSubscriber = timer.sink(receiveValue: { [unowned self] _ in
+            if expDuration > 0 {
+                expDuration -= 1
+            } else {
+
+                // MARK: I need to change the value of `Completed` from false to True
+                createdListItem.completed = true
+                
+                print("THIS \(createdListItem.title) and \(createdListItem.completed)")
+            
+            }
+        })
+    }
     
     enum ARExperiences {
         case first, second, third, fourth, fifth
@@ -57,20 +73,12 @@ class ExperienceModel: ObservableObject {
     }
     
     init(listItem: ListItem) {
+        print("List Item 2")
         
-        //        self.completed = completed
         createdListItem = listItem
         activeExperience = listItem.arExp
         activeScene = activeExperience.scene
         expDuration = listItem.duartion
-        
-        timerSubscriber = timer.sink(receiveValue: { [unowned self] _ in
-            if expDuration > 0 {
-                expDuration -= 1
-            } else {
-                print("hello")
-                // MARK: I need to change the value of `Completed` from false to True
-            }
-        })
+        expCompleted = listItem.completed
     }
 }

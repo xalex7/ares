@@ -52,6 +52,7 @@ struct ARViewContainer: UIViewRepresentable {
         // Add the box anchor to the scene
         arView.scene.anchors.append(activeModel.activeScene)
         
+        activeModel.startTimer()
         
         return arView
         
