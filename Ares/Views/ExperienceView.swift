@@ -17,42 +17,63 @@ struct ExperienceView: View {
     
     
     var body: some View {
-        ARViewContainer(activeModel: myModel).edgesIgnoringSafeArea(.all)
-        
-        //@State var expDuration = myModel.activeExperience.expDuration
-        // MARK: Would it be better if I use an Observed Object from detailed view so I can change the value of both `Completed` and `Duration`
-
-        Text("To Complete \(myModel.expDuration)").foregroundColor(Color(.white))
+        VStack {
+            ARViewContainer(activeModel: myModel).edgesIgnoringSafeArea(.all)
+            
+            Text("To Complete \(myModel.expDuration)").foregroundColor(Color(.white))
+        }
     }
 }
 
-extension ARView {
+extension ARView: ARCoachingOverlayViewDelegate {
+    
+    
     func addCoaching(goal: ARCoachingOverlayView.Goal) {
         
         let coachingOverlay = ARCoachingOverlayView()
         coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         coachingOverlay.goal = goal
         coachingOverlay.session = session
+        coachingOverlay.delegate = self
         addSubview(coachingOverlay)
         coachingOverlay.setActive(true, animated: true)
+        coachingOverlay.delegate = self
+    }
+    
+    public func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
+        NotificationCenter.default.post(name: Notification.Name("ARCoachingDidDeactivate"), object: nil)
     }
 }
 
 
-
 struct ARViewContainer: UIViewRepresentable {
     let activeModel: ExperienceModel
-
+    
     func makeUIView(context: Context) -> ARView {
+        //activeModel.expCompleted = UserDefaults().bool(forKey: "completed")
+        
+        
         
         let arView = ARView(frame: .zero)
         
         arView.addCoaching(goal: activeModel.activeExperience.coachingGoal)
         
+        arView.coachingOverlayViewDidDeactivate(ARCoachingOverlayView())
+        
+        
+        
         // Add the box anchor to the scene
         arView.scene.anchors.append(activeModel.activeScene)
         
-        activeModel.startTimer()
+        NotificationCenter.default.addObserver(forName: Notification.Name("ARCoachingDidDeactivate"), object: nil, queue: nil) { _ in
+            activeModel.startTimer()
+        }
+        
+        
+        
+        //        if arView.coachingOverlayViewDidDeactivate?(ARCoachingOverlayView()) == false {
+        //            activeModel.startTimer()
+        //        }
         
         return arView
         

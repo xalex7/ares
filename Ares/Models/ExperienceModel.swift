@@ -19,22 +19,36 @@ class ExperienceModel: ObservableObject {
     @Published var expDuration: Int
     @Published var expCompleted: Bool
     
+    
+    var defaults = UserDefaults.standard
+    
     var timerSubscriber: AnyCancellable?
     
     func startTimer() {
         timerSubscriber = timer.sink(receiveValue: { [unowned self] _ in
+            
+            
             if expDuration > 0 {
                 expDuration -= 1
             } else {
+                
 
                 // MARK: I need to change the value of `Completed` from false to True
                 createdListItem.completed = true
                 
+                expDuration = createdListItem.duartion
+                
+                defaults.set(createdListItem.completed, forKey: "completed")
                 print("THIS \(createdListItem.title) and \(createdListItem.completed)")
-            
+                
+                //print("XXX\(UserDefaults.standard.bool(forKey: "completed"))")
+
+                timerSubscriber?.cancel()
             }
         })
     }
+    
+ 
     
     enum ARExperiences {
         case first, second, third, fourth, fifth
@@ -53,7 +67,10 @@ class ExperienceModel: ObservableObject {
                 return try! Experiences.loadFifthEx()
             }
         }
+
         
+        
+
         var coachingGoal: ARCoachingOverlayView.Goal {
             switch self {
             case .first:
@@ -72,6 +89,8 @@ class ExperienceModel: ObservableObject {
 
     }
     
+    
+    
     init(listItem: ListItem) {
         print("List Item 2")
         
@@ -80,5 +99,6 @@ class ExperienceModel: ObservableObject {
         activeScene = activeExperience.scene
         expDuration = listItem.duartion
         expCompleted = listItem.completed
+
     }
 }

@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ListItemView: View {
     
-    //var listItem: ListItem = listItemTest
+ // MARK: Doesn't this mean that all 6 experinces are being created?
     var listItem: ListItem = ListModel().list[0]
+    
+    
     
     var body: some View {
         

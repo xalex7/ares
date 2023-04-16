@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ExperienceDetailView: View {
-    
+
     @State var isExpVisible = false
     
     
@@ -27,7 +27,8 @@ struct ExperienceDetailView: View {
                 Text(experienceItem.description)
                 IntensityView(intensityRange: experienceItem.intensity)
                 Text("Duration \(experienceItem.duartion) seconds")
-                Text("Completed \(String(experienceItem.completed))")
+                //Text("Completed \(String(experienceItem.completed))")
+                Text("Completed \(String(UserDefaults.standard.bool(forKey: "completed")))")
                 
             }
             

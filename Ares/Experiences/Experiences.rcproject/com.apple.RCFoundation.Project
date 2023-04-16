@@ -53,6 +53,26 @@
                                     }
                                   ],
                                   "__version" : 1
+                                },
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+                                            "51096F9E-37F8-4918-A041-5ED5E25C968A"
+                                          ],
+                                          "userIdentifier" : "SpiderOneAppeared"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "D184280A-CCAA-42D8-93A5-16309EAEA029",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
                                 }
                               ],
                               "identifier" : "2DBE999B-50B0-4E6C-9562-C83427154309",
@@ -72,7 +92,7 @@
                       "isEnabled" : true,
                       "isLooping" : false,
                       "isModal" : false,
-                      "name" : "Spider",
+                      "name" : "SpiderOne",
                       "triggers" : [
                         {
                           "__content" : [
@@ -1379,6 +1399,13 @@
                             "typeName" : "UUID",
                             "value" : "51096F9E-37F8-4918-A041-5ED5E25C968A"
                           }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "SpiderOne"
+                          }
                         ]
                       ]
                     },
@@ -2198,9 +2225,9 @@
                   0.19788828492164612,
                   0.94445830583572388,
                   0,
-                  -0.026339715346693993,
-                  0.37828138470649719,
-                  0.70343518257141113,
+                  -0.025874495506286621,
+                  0.12862735986709595,
+                  0.55534863471984863,
                   1
                 ],
                 "sceneTransform" : [
@@ -2305,6 +2332,26 @@
                                     }
                                   ],
                                   "__version" : 1
+                                },
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+
+                                          ],
+                                          "userIdentifier" : "SpiderTwoAppeared"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "B0010921-8DCA-45F3-900D-DCDA47D3CA0C",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
                                 }
                               ],
                               "identifier" : "BA98F73D-9E01-4CDF-A9E3-F3778166F97A",
@@ -2324,7 +2371,7 @@
                       "isEnabled" : true,
                       "isLooping" : false,
                       "isModal" : false,
-                      "name" : "Spider",
+                      "name" : "SpiderTwo",
                       "triggers" : [
                         {
                           "__content" : [
@@ -2437,6 +2484,13 @@
                           {
                             "typeName" : "UUID",
                             "value" : "F557072F-9998-421B-9D4C-1B528C31C10B"
+                          }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "SpiderTwo"
                           }
                         ]
                       ]
@@ -2595,6 +2649,26 @@
                                         }
                                       },
                                       "identifier" : "7D5C567E-61C5-4210-BE58-7823B98A0B86",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                },
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+                                            "5B7FE752-851A-474E-B958-C7058A1D2EF3"
+                                          ],
+                                          "userIdentifier" : "SpiderThreeAppeared"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "A805F5DD-46FF-4AC5-8286-138081BCA7BA",
                                       "isEnabled" : true
                                     }
                                   ],
@@ -3157,6 +3231,13 @@
                             "typeName" : "UUID",
                             "value" : "5B7FE752-851A-474E-B958-C7058A1D2EF3"
                           }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "SpiderThree"
+                          }
                         ]
                       ]
                     },
@@ -3290,6 +3371,26 @@
                                     }
                                   ],
                                   "__version" : 1
+                                },
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+                                            "CEE34ED9-B67A-495E-B306-6966D8F95E17"
+                                          ],
+                                          "userIdentifier" : "SpiderFour"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "8BFC9FF2-3312-452C-B5BA-A1AAA747B07D",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
                                 }
                               ],
                               "identifier" : "B61589FD-FEC0-46EC-98EE-5A5473BC3432",
@@ -3309,7 +3410,7 @@
                       "isEnabled" : true,
                       "isLooping" : false,
                       "isModal" : false,
-                      "name" : "Spider",
+                      "name" : "SpiderFour",
                       "triggers" : [
                         {
                           "__content" : [
@@ -3670,6 +3771,13 @@
                             "typeName" : "UUID",
                             "value" : "CEE34ED9-B67A-495E-B306-6966D8F95E17"
                           }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "SpiderFour"
+                          }
                         ]
                       ]
                     },
@@ -3711,21 +3819,21 @@
               "title" : "FourthEx",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.99993699789047241,
-                  1.0194891331138933e-07,
-                  -0.011228379793465137,
+                  0.99999123811721802,
+                  1.0194944621844115e-07,
+                  0.0041929217986762524,
                   0,
-                  0.00033364197588525712,
-                  0.99955826997756958,
-                  0.029719039797782898,
+                  -0.00014333002036437392,
+                  0.99941623210906982,
+                  0.034165453165769577,
                   0,
-                  0.011223520152270794,
-                  -0.029720954596996307,
-                  0.99949520826339722,
+                  -0.0041903718374669552,
+                  -0.034165795892477036,
+                  0.99940741062164307,
                   0,
-                  -0.057165198028087616,
-                  0.20906712114810944,
-                  0.92360979318618774,
+                  -0.025367289781570435,
+                  -0.045714110136032104,
+                  0.91462308168411255,
                   1
                 ],
                 "sceneTransform" : [
@@ -3802,6 +3910,26 @@
                                     }
                                   ],
                                   "__version" : 1
+                                },
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+                                            "597E5FE1-B433-4B84-A0E2-3225474D2949"
+                                          ],
+                                          "userIdentifier" : "SpiderFive"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "037BF2E7-84D5-4C7E-9BD1-B2A219F9AF77",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
                                 }
                               ],
                               "identifier" : "06FAAECE-32E3-4A1D-BA0C-91D020978EB1",
@@ -3821,7 +3949,7 @@
                       "isEnabled" : true,
                       "isLooping" : false,
                       "isModal" : false,
-                      "name" : "Spider1",
+                      "name" : "SpiderFive",
                       "triggers" : [
                         {
                           "__content" : [
@@ -4020,6 +4148,13 @@
                           {
                             "typeName" : "UUID",
                             "value" : "597E5FE1-B433-4B84-A0E2-3225474D2949"
+                          }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "SpiderFive"
                           }
                         ]
                       ]
@@ -4275,21 +4410,21 @@
               "title" : "FifthEx",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.99130421876907349,
-                  1.0058283805847168e-07,
-                  0.13159000873565674,
+                  0.99221611022949219,
+                  1.0092922053672737e-07,
+                  0.12452788650989532,
                   0,
-                  0.062815189361572266,
-                  0.87871003150939941,
-                  -0.47320500016212463,
+                  0.076987244188785553,
+                  0.78599441051483154,
+                  -0.61342138051986694,
                   0,
-                  -0.11562950909137726,
-                  0.47735598683357239,
-                  0.87106895446777344,
+                  -0.097878284752368927,
+                  0.61823362112045288,
+                  0.77987635135650635,
                   0,
-                  -0.016426464542746544,
-                  0.38858592510223389,
-                  0.54343855381011963,
+                  -0.00053581316024065018,
+                  0.28918826580047607,
+                  0.59797751903533936,
                   1
                 ],
                 "sceneTransform" : [
