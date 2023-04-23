@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AppButton: View {
+struct StartButton: View {
     
     var buttonText: String
     var buttonColor: Color
@@ -15,24 +15,26 @@ struct AppButton: View {
     var body: some View {
         HStack {
             
-            Button(action: { buttonPressed?() }) {
+            Button(action: {
+                buttonPressed?()
+            }) {
                 Spacer()
                 Text(buttonText)
-                
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
-                    .cornerRadius(5)
                 Spacer()
-            } .background(buttonColor, in:Capsule())
+            } .background(buttonColor, in:Rectangle())
+                .cornerRadius(5)
                 .foregroundColor(.white)
-                .padding(5)
+                .padding(.horizontal, 40)
+                .shadow(color: Color.gray, radius: 3)
         }
     }
 }
 
 struct AppButton_Previews: PreviewProvider {
     static var previews: some View {
-        AppButton(buttonText:"Start", buttonColor: Color(.cyan))
+        StartButton(buttonText:"Start", buttonColor: Color(.blue))
     }
 }

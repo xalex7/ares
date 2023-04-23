@@ -7,6 +7,26 @@
 
 import SwiftUI
 
+import OSLog
+
+struct LazyView<Content: View>: View {
+    let content: () -> Content
+    @State private var visible = true
+  
+    init(_ content: @autoclosure @escaping () -> Content) {
+        self.content = content
+    }
+    var body: some View {
+        Group {
+            if visible {
+                content()
+            }
+        }
+        .onAppear { visible = true }
+        .onDisappear { visible = false }
+    }
+}
+
 struct ExperienceDetailView: View {
     
     @Environment(\.presentationMode) var presentationMode
@@ -14,14 +34,13 @@ struct ExperienceDetailView: View {
     @State var isExpVisible = false
     
     @ObservedObject var experienceItem: ListItem
-    @State var experinceModel: ExperienceModel!
     
     var body: some View {
         
-        VStack {
+        VStack (spacing: 20) {
             ContentHeaderView()
-            
-            VStack {
+
+            VStack (spacing: 20) {
                 Image(systemName: "photo.fill")
                 Text(experienceItem.title)
                 Text(experienceItem.description)
@@ -29,25 +48,20 @@ struct ExperienceDetailView: View {
                 Text("Duration \(experienceItem.duartion) seconds")
                 Text("Completed \(String(UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")))")
             }
-            
-            AppButton(buttonText: "Start", buttonColor: .cyan) {
+            Spacer()
+            StartButton(buttonText: "Start", buttonColor: .blue) {
                 isExpVisible.toggle()
             }
-            if let experinceModel { NavigationLink(destination: ExperienceView(myModel: experinceModel), isActive: $isExpVisible) {}
+            NavigationLink(destination: LazyView( ExperienceView(myModel: ExperienceModel(listItem: experienceItem))), isActive: $isExpVisible) {}
                     .navigationBarBackButtonHidden(true)
                     .navigationBarItems(leading: Button(action: { presentationMode.wrappedValue.dismiss()}) {
                             HStack {
                                 Image(systemName: "chevron.left")
                                 Text("All Experiences")
-                                    .font(.title2)
+                                    .font(.title)
                             }
                         }
                     )
-            }
-        }
-        .onAppear {
-            guard experinceModel == nil else {return}
-            experinceModel = ExperienceModel(listItem: experienceItem)
         }
     }
 }

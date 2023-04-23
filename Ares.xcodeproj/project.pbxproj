@@ -15,14 +15,15 @@
 		05509E82296472610030870E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05509E81296472610030870E /* Preview Assets.xcassets */; };
 		05543C9E2986F7DC003BA137 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05543C9D2986F7DC003BA137 /* ExperienceDetailView.swift */; };
 		05543CA02986FC98003BA137 /* IntensityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05543C9F2986FC98003BA137 /* IntensityView.swift */; };
-		055A4B1F2974E69000BC3366 /* AppButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A4B1E2974E69000BC3366 /* AppButton.swift */; };
+		055A4B1F2974E69000BC3366 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A4B1E2974E69000BC3366 /* StartButtonView.swift */; };
 		055AC2BF297830BC00B03DA7 /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2BE297830BC00B03DA7 /* ContentHeaderView.swift */; };
 		055AC2C12978313B00B03DA7 /* ExperienceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2C02978313B00B03DA7 /* ExperienceListView.swift */; };
 		055AC2C52978364B00B03DA7 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2C42978364B00B03DA7 /* ListItemView.swift */; };
 		05649C9C29A2D64700051348 /* Experiences.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 05649C9B29A2D64700051348 /* Experiences.rcproject */; };
+		0580D64729F4B12200A7591D /* ExitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580D64629F4B12200A7591D /* ExitButtonView.swift */; };
+		0580D66729F51AB900A7591D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0580D66629F51AB900A7591D /* Launch Screen.storyboard */; };
 		05A4F1F02986015800DC02A7 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F1EF2986015800DC02A7 /* ListModel.swift */; };
 		05AA19142965BD2300A33839 /* Plane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 05AA19132965BD2300A33839 /* Plane.usdz */; };
-		05AA19162965C1D800A33839 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AA19152965C1D800A33839 /* Coordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,14 +36,15 @@
 		05509E81296472610030870E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		05543C9D2986F7DC003BA137 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
 		05543C9F2986FC98003BA137 /* IntensityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityView.swift; sourceTree = "<group>"; };
-		055A4B1E2974E69000BC3366 /* AppButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppButton.swift; sourceTree = "<group>"; };
+		055A4B1E2974E69000BC3366 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
 		055AC2BE297830BC00B03DA7 /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
 		055AC2C02978313B00B03DA7 /* ExperienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceListView.swift; sourceTree = "<group>"; };
 		055AC2C42978364B00B03DA7 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		05649C9B29A2D64700051348 /* Experiences.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experiences.rcproject; sourceTree = "<group>"; };
+		0580D64629F4B12200A7591D /* ExitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButtonView.swift; sourceTree = "<group>"; };
+		0580D66629F51AB900A7591D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		05A4F1EF2986015800DC02A7 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		05AA19132965BD2300A33839 /* Plane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Plane.usdz; sourceTree = "<group>"; };
-		05AA19152965C1D800A33839 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 		05509E6C296472600030870E = {
 			isa = PBXGroup;
 			children = (
+				0580D66629F51AB900A7591D /* Launch Screen.storyboard */,
 				05509E77296472600030870E /* Ares */,
 				05509E76296472600030870E /* Products */,
 			);
@@ -98,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				054B2DCC29AC25EB004C62A8 /* ExperienceView.swift */,
+				0580D64629F4B12200A7591D /* ExitButtonView.swift */,
 				057191D129B29B6A00AE463E /* MainView */,
 				057191D229B29CCE00AE463E /* DetailedView */,
 			);
@@ -109,7 +113,6 @@
 			children = (
 				054B2DC829AC06B9004C62A8 /* ExperienceModel.swift */,
 				05A4F1EF2986015800DC02A7 /* ListModel.swift */,
-				05AA19152965C1D800A33839 /* Coordinator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -138,7 +141,7 @@
 			children = (
 				05543C9D2986F7DC003BA137 /* ExperienceDetailView.swift */,
 				05543C9F2986FC98003BA137 /* IntensityView.swift */,
-				055A4B1E2974E69000BC3366 /* AppButton.swift */,
+				055A4B1E2974E69000BC3366 /* StartButtonView.swift */,
 			);
 			path = DetailedView;
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			files = (
 				05509E82296472610030870E /* Preview Assets.xcassets in Resources */,
 				05AA19142965BD2300A33839 /* Plane.usdz in Resources */,
+				0580D66729F51AB900A7591D /* Launch Screen.storyboard in Resources */,
 				05509E7F296472610030870E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,12 +221,12 @@
 				05509E7B296472600030870E /* ContentView.swift in Sources */,
 				055AC2C12978313B00B03DA7 /* ExperienceListView.swift in Sources */,
 				054B2DCD29AC25EB004C62A8 /* ExperienceView.swift in Sources */,
+				0580D64729F4B12200A7591D /* ExitButtonView.swift in Sources */,
 				05509E79296472600030870E /* AppDelegate.swift in Sources */,
 				055AC2C52978364B00B03DA7 /* ListItemView.swift in Sources */,
 				055AC2BF297830BC00B03DA7 /* ContentHeaderView.swift in Sources */,
 				05649C9C29A2D64700051348 /* Experiences.rcproject in Sources */,
-				055A4B1F2974E69000BC3366 /* AppButton.swift in Sources */,
-				05AA19162965C1D800A33839 /* Coordinator.swift in Sources */,
+				055A4B1F2974E69000BC3366 /* StartButtonView.swift in Sources */,
 				05543CA02986FC98003BA137 /* IntensityView.swift in Sources */,
 				05543C9E2986F7DC003BA137 /* ExperienceDetailView.swift in Sources */,
 				05A4F1F02986015800DC02A7 /* ListModel.swift in Sources */,
@@ -358,13 +362,15 @@
 				DEVELOPMENT_TEAM = 4ZC85J53SW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Safety Net";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.simulation-games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -389,13 +395,15 @@
 				DEVELOPMENT_TEAM = 4ZC85J53SW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Safety Net";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.simulation-games";
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen.storyboard";
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

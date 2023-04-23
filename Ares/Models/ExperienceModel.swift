@@ -15,7 +15,6 @@ class ExperienceModel: ObservableObject {
     let activeExperience: ARExperiences
     let activeScene: Scene.AnchorCollection.Element
     var createdListItem: ListItem
-    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @Published var expDuration: Int
     @Published var expCompleted: Bool
     
@@ -25,18 +24,20 @@ class ExperienceModel: ObservableObject {
     var timerSubscriber: AnyCancellable?
     
     func startTimer() {
-        timerSubscriber = timer.sink(receiveValue: { [unowned self] _ in
-            
+        print("Timer being called")
+        timerSubscriber =  Timer.publish(every: 1, on: .main, in: .common).autoconnect().sink(receiveValue: { [unowned self] _ in
+           
+            print("TimerrrrrrrRRRRRR")
             
             if expDuration > 0 {
                 expDuration -= 1
+                print("duration deducted \(expDuration)")
             } else {
-                
 
                 // MARK: I need to change the value of `Completed` from false to True
                 createdListItem.completed = true
                 
-                expDuration = createdListItem.duartion
+                //expDuration = createdListItem.duartion
                 
                 defaults.set(createdListItem.completed, forKey: "completed-\(createdListItem.id)")
                 print("THIS \(createdListItem.title) and \(createdListItem.completed)")
@@ -86,11 +87,8 @@ class ExperienceModel: ObservableObject {
         }
 
     }
-    
-    
-    
+
     init(listItem: ListItem) {
-        print("List Item 2")
         
         createdListItem = listItem
         activeExperience = listItem.arExp

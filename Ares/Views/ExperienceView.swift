@@ -9,23 +9,34 @@ import SwiftUI
 import RealityKit
 import ARKit
 
-
 struct ExperienceView: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @ObservedObject var myModel: ExperienceModel
-    // You're observing changes to the model not the property
-    
-    
-    var body: some View {
 
+    var body: some View {
         VStack {
-            
             ARViewContainer(activeModel: myModel).edgesIgnoringSafeArea(.all)
-            
-            Text("To Complete \(myModel.expDuration)").foregroundColor(Color(.white))
-                .navigationBarBackButtonHidden(false)
-                .navigationTitle("End")
+                .overlay (
+                    
+                    VStack {
+                        Spacer()
+                        Text("To Complete \(myModel.expDuration)")
+                    }
+                )
         }
+        .navigationBarBackButtonHidden(true)
+        .navigationBarItems(leading: Button(action: { presentationMode.wrappedValue.dismiss()}) {
+            HStack {
+                ExitButton()
+            }
+        })
+        .onDisappear {
+
+            
+        }.onReceive(myModel.$expDuration, perform: {print("HELLLLLLLLL\($0)")})
+            .onReceive(myModel.$expCompleted, perform: {print("expCompleted \($0)")})
     }
 }
 
@@ -48,11 +59,14 @@ extension ARView: ARCoachingOverlayViewDelegate {
     }
 }
 
-
 struct ARViewContainer: UIViewRepresentable {
-    let activeModel: ExperienceModel
     
+    var activeModel: ExperienceModel
+
     func makeUIView(context: Context) -> ARView {
+        
+        print("HELL")
+        
         
         
         let arView = ARView(frame: .zero)
@@ -61,22 +75,23 @@ struct ARViewContainer: UIViewRepresentable {
         
         arView.coachingOverlayViewDidDeactivate(ARCoachingOverlayView())
         
-        
-        
-        // Add the box anchor to the scene
+        // Add the item anchor to the scene
         arView.scene.anchors.append(activeModel.activeScene)
         
         NotificationCenter.default.addObserver(forName: Notification.Name("ARCoachingDidDeactivate"), object: nil, queue: nil) { _ in
             activeModel.startTimer()
             NotificationCenter.default.removeObserver(self)
+            print("Notification received")
         }
         
-        
         return arView
-        
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
+    
+    static func dismantleUIView(_ uiView: ARView, coordinator: ()) {
+        uiView.session.pause()
+    }
     
 }
 

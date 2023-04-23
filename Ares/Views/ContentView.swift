@@ -11,18 +11,11 @@ import RealityKit
 struct ContentView : View {
     var body: some View {
         
-        
         VStack {
-            ContentHeaderView()
-            VStack {
-                Spacer()
-                ExperienceListView()
-                Spacer()
-            }
+            ExperienceListView()
         }
     }
 }
-
 
 
 #if DEBUG
