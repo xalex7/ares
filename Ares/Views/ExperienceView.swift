@@ -17,10 +17,14 @@ struct ExperienceView: View {
     
     
     var body: some View {
+
         VStack {
+            
             ARViewContainer(activeModel: myModel).edgesIgnoringSafeArea(.all)
             
             Text("To Complete \(myModel.expDuration)").foregroundColor(Color(.white))
+                .navigationBarBackButtonHidden(false)
+                .navigationTitle("End")
         }
     }
 }
@@ -37,7 +41,6 @@ extension ARView: ARCoachingOverlayViewDelegate {
         coachingOverlay.delegate = self
         addSubview(coachingOverlay)
         coachingOverlay.setActive(true, animated: true)
-        coachingOverlay.delegate = self
     }
     
     public func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
@@ -50,8 +53,6 @@ struct ARViewContainer: UIViewRepresentable {
     let activeModel: ExperienceModel
     
     func makeUIView(context: Context) -> ARView {
-        //activeModel.expCompleted = UserDefaults().bool(forKey: "completed")
-        
         
         
         let arView = ARView(frame: .zero)
@@ -67,13 +68,9 @@ struct ARViewContainer: UIViewRepresentable {
         
         NotificationCenter.default.addObserver(forName: Notification.Name("ARCoachingDidDeactivate"), object: nil, queue: nil) { _ in
             activeModel.startTimer()
+            NotificationCenter.default.removeObserver(self)
         }
         
-        
-        
-        //        if arView.coachingOverlayViewDidDeactivate?(ARCoachingOverlayView()) == false {
-        //            activeModel.startTimer()
-        //        }
         
         return arView
         

@@ -38,10 +38,8 @@ class ExperienceModel: ObservableObject {
                 
                 expDuration = createdListItem.duartion
                 
-                defaults.set(createdListItem.completed, forKey: "completed")
+                defaults.set(createdListItem.completed, forKey: "completed-\(createdListItem.id)")
                 print("THIS \(createdListItem.title) and \(createdListItem.completed)")
-                
-                //print("XXX\(UserDefaults.standard.bool(forKey: "completed"))")
 
                 timerSubscriber?.cancel()
             }

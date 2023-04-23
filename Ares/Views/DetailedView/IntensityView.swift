@@ -14,7 +14,7 @@ struct IntensityView: View {
             Text("Intensity")
                 .fontWeight(.medium)
             ForEach(0..<intensityRange) { item in
-                Image(systemName: "star.fill")
+                Image(systemName: "circle.fill")
             }
         }
     }

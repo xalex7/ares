@@ -12,7 +12,7 @@ struct ContentHeaderView: View {
         HStack {
             Image(systemName: "person.crop.circle.fill")
                 .imageScale(.large)
-            Text("ARES")
+            Text("Safety Net")
                 .font(.title)
                 .fontWeight(.bold)
         }

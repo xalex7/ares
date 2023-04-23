@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct ExperienceDetailView: View {
-
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var isExpVisible = false
-    
-    
     
     @ObservedObject var experienceItem: ListItem
     @State var experinceModel: ExperienceModel!
@@ -27,16 +27,22 @@ struct ExperienceDetailView: View {
                 Text(experienceItem.description)
                 IntensityView(intensityRange: experienceItem.intensity)
                 Text("Duration \(experienceItem.duartion) seconds")
-                //Text("Completed \(String(experienceItem.completed))")
-                Text("Completed \(String(UserDefaults.standard.bool(forKey: "completed")))")
-                
+                Text("Completed \(String(UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")))")
             }
             
             AppButton(buttonText: "Start", buttonColor: .cyan) {
                 isExpVisible.toggle()
             }
             if let experinceModel { NavigationLink(destination: ExperienceView(myModel: experinceModel), isActive: $isExpVisible) {}
-                
+                    .navigationBarBackButtonHidden(true)
+                    .navigationBarItems(leading: Button(action: { presentationMode.wrappedValue.dismiss()}) {
+                            HStack {
+                                Image(systemName: "chevron.left")
+                                Text("All Experiences")
+                                    .font(.title2)
+                            }
+                        }
+                    )
             }
         }
         .onAppear {
