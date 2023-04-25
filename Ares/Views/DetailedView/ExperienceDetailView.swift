@@ -47,7 +47,8 @@ struct ExperienceDetailView: View {
                 Text(experienceItem.description)
                 IntensityView(intensityRange: experienceItem.intensity)
                 Text("Duration \(experienceItem.duartion) seconds")
-                Text("Completed \(String(UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")))")
+                Text((UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")) == true ? "Explored!" : "Unexplored" )
+                //Text("Completed \(String(UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")))")
             }
             Spacer()
             StartButton(buttonText: "Start", buttonColor: .blue) {

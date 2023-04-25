@@ -16,6 +16,8 @@ struct ExperienceView: View {
 
     @ObservedObject
     var myModel: ExperienceModel
+    
+    @State private var congrats = ["Well done!", "Fantastic!", "Excellent!"]
 
     var body: some View {
         ARViewContainer(activeModel: myModel)
@@ -24,8 +26,11 @@ struct ExperienceView: View {
                 VStack {
                     Spacer()
 
-                    Text(String(myModel.expDuration))
- 
+                    Text(myModel.expDuration > 0 ? "Time remaining \(myModel.expDuration)" : congrats.randomElement()!)
+                        .foregroundColor(myModel.expDuration > 0 ? Color.white : Color.green)
+                        .font(myModel.expDuration > 0 ? .title2 : .largeTitle)
+                        .fontWeight(.bold)
+                        .animation(.easeOut(duration: 0.5))
                 }
             )
         .navigationBarBackButtonHidden(true)
