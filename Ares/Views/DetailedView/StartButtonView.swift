@@ -23,12 +23,15 @@ struct StartButton: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .padding()
+                
                 Spacer()
             } .background(buttonColor, in:Rectangle())
                 .cornerRadius(5)
                 .foregroundColor(.white)
                 .padding(.horizontal, 40)
                 .shadow(color: Color.gray, radius: 3)
+                
+
         }
     }
 }

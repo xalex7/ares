@@ -13,19 +13,21 @@ struct ExperienceView: View {
     
     @Environment(\.dismiss)
     var dismiss
-
+    
     @ObservedObject
     var myModel: ExperienceModel
     
     @State private var congrats = ["Well done!", "Fantastic!", "Excellent!"]
-
+    
+    @State private var dismissTimer: Timer?
+    
     var body: some View {
         ARViewContainer(activeModel: myModel)
             .edgesIgnoringSafeArea(.all)
             .overlay(
                 VStack {
                     Spacer()
-
+                    
                     Text(myModel.expDuration > 0 ? "Time remaining \(myModel.expDuration)" : congrats.randomElement()!)
                         .foregroundColor(myModel.expDuration > 0 ? Color.white : Color.green)
                         .font(myModel.expDuration > 0 ? .title2 : .largeTitle)
@@ -33,31 +35,40 @@ struct ExperienceView: View {
                         .animation(.easeOut(duration: 0.5))
                 }
             )
-        .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: { dismiss() }) {
-            HStack {
-                ExitButton()
+            .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
+                print("Hey")
+                if myModel.expDuration == 0 {
+                    // Wait for 5 seconds then dismiss()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
+                        dismiss()
+                    }
+                }
             }
-        })
-        .onDisappear {
-            myModel.stop()
-        }
+            .navigationBarBackButtonHidden(true)
+            .navigationBarItems(leading: Button(action: { dismiss() }) {
+                HStack {
+                    ExitButton()
+                }
+            })
+            .onDisappear {
+                myModel.stop()
+            }
     }
 }
 
 struct ARViewContainer: UIViewRepresentable {
     
     var activeModel: ExperienceModel
-
+    
     class Coordinator: NSObject, ARCoachingOverlayViewDelegate {
         var activeModel: ExperienceModel
         var arView: ARView
-
+        
         init(arView: ARView, activeModel: ExperienceModel) {
             self.arView = arView
             self.activeModel = activeModel
         }
-
+        
         func addCoaching(goal: ARCoachingOverlayView.Goal) {
             let coachingOverlay = ARCoachingOverlayView()
             coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -67,31 +78,29 @@ struct ARViewContainer: UIViewRepresentable {
             arView.addSubview(coachingOverlay)
             coachingOverlay.setActive(true, animated: true)
         }
-
+        
         func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
             coachingOverlayView.removeFromSuperview()
             activeModel.startTimer()
         }
     }
-
+    
     func makeCoordinator() -> Coordinator {
         Coordinator(arView: ARView(frame: .zero), activeModel: activeModel)
     }
-
+    
     func makeUIView(context: Context) -> ARView {
         
-        print("HELL")
-
-        #if targetEnvironment(simulator)
+#if targetEnvironment(simulator)
         activeModel.startTimer()
-        #else
+#else
         context.coordinator.addCoaching(goal: activeModel.activeExperience.coachingGoal)
-        #endif
-
+#endif
+        
         
         // Add the item anchor to the scene
         context.coordinator.arView.scene.anchors.append(activeModel.activeScene)
-
+        
         return context.coordinator.arView
     }
     
