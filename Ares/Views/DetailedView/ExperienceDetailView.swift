@@ -32,7 +32,8 @@ struct ExperienceDetailView: View {
     @Environment(\.presentationMode) var presentationMode
     
     @State var isExpVisible = false
-    
+    @State var experienceModel: ExperienceModel?
+
     @ObservedObject var experienceItem: ListItem
     
     var body: some View {
@@ -52,16 +53,21 @@ struct ExperienceDetailView: View {
             StartButton(buttonText: "Start", buttonColor: .blue) {
                 isExpVisible.toggle()
             }
-            NavigationLink(destination: LazyView( ExperienceView(myModel: ExperienceModel(listItem: experienceItem))), isActive: $isExpVisible) {}
+            if let experienceModel {
+                NavigationLink(destination: LazyView( ExperienceView(myModel: experienceModel)), isActive: $isExpVisible) {}
                     .navigationBarBackButtonHidden(true)
                     .navigationBarItems(leading: Button(action: { presentationMode.wrappedValue.dismiss()}) {
-                            HStack {
-                                Image(systemName: "chevron.left")
-                                Text("All Experiences")
-                                    .font(.title)
-                            }
+                        HStack {
+                            Image(systemName: "chevron.left")
+                            Text("All Experiences")
+                                .font(.title)
                         }
+                    }
                     )
+            }
+        }
+        .onAppear {
+            experienceModel = ExperienceModel(listItem: experienceItem)
         }
     }
 }

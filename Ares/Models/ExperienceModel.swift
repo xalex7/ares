@@ -17,37 +17,40 @@ class ExperienceModel: ObservableObject {
     var createdListItem: ListItem
     @Published var expDuration: Int
     @Published var expCompleted: Bool
-    
-    
+
     var defaults = UserDefaults.standard
-    
-    var timerSubscriber: AnyCancellable?
+
+    private var timerSubscriber: AnyCancellable?
     
     func startTimer() {
-        print("Timer being called")
-        timerSubscriber =  Timer.publish(every: 1, on: .main, in: .common).autoconnect().sink(receiveValue: { [unowned self] _ in
-           
-            print("TimerrrrrrrRRRRRR")
-            
-            if expDuration > 0 {
-                expDuration -= 1
-                print("duration deducted \(expDuration)")
-            } else {
 
-                // MARK: I need to change the value of `Completed` from false to True
-                createdListItem.completed = true
-                
-                //expDuration = createdListItem.duartion
-                
-                defaults.set(createdListItem.completed, forKey: "completed-\(createdListItem.id)")
-                print("THIS \(createdListItem.title) and \(createdListItem.completed)")
+        timerSubscriber = Timer
+            .publish(every: 1, on: .main, in: .default)
+            .autoconnect()
+            .sink { [unowned self] _ in
+                if expDuration > 0 {
+                    expDuration -= 1
+                    print("duration deducted \(expDuration)")
+                } else {
 
-                timerSubscriber?.cancel()
-            }
-        })
+                    // MARK: I need to change the value of `Completed` from false to True
+                    createdListItem.completed = true
+
+                    //expDuration = createdListItem.duartion
+
+                    defaults.set(createdListItem.completed, forKey: "completed-\(createdListItem.id)")
+                    print("THIS \(createdListItem.title) and \(createdListItem.completed)")
+
+                    timerSubscriber = nil
+                }
+        }
     }
-    
- 
+
+    func stop() {
+        timerSubscriber?.cancel()
+        timerSubscriber = nil
+    }
+
     
     enum ARExperiences {
         case first, second, third, fourth, fifth

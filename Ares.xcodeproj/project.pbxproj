@@ -19,11 +19,11 @@
 		055AC2BF297830BC00B03DA7 /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2BE297830BC00B03DA7 /* ContentHeaderView.swift */; };
 		055AC2C12978313B00B03DA7 /* ExperienceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2C02978313B00B03DA7 /* ExperienceListView.swift */; };
 		055AC2C52978364B00B03DA7 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2C42978364B00B03DA7 /* ListItemView.swift */; };
-		05649C9C29A2D64700051348 /* Experiences.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 05649C9B29A2D64700051348 /* Experiences.rcproject */; };
 		0580D64729F4B12200A7591D /* ExitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580D64629F4B12200A7591D /* ExitButtonView.swift */; };
 		0580D66729F51AB900A7591D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0580D66629F51AB900A7591D /* Launch Screen.storyboard */; };
 		05A4F1F02986015800DC02A7 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F1EF2986015800DC02A7 /* ListModel.swift */; };
 		05AA19142965BD2300A33839 /* Plane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 05AA19132965BD2300A33839 /* Plane.usdz */; };
+		E8507ED229F6177A00AC8174 /* Experiences.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E8507ED129F6177A00AC8174 /* Experiences.rcproject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,11 +40,11 @@
 		055AC2BE297830BC00B03DA7 /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
 		055AC2C02978313B00B03DA7 /* ExperienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceListView.swift; sourceTree = "<group>"; };
 		055AC2C42978364B00B03DA7 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
-		05649C9B29A2D64700051348 /* Experiences.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experiences.rcproject; sourceTree = "<group>"; };
 		0580D64629F4B12200A7591D /* ExitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButtonView.swift; sourceTree = "<group>"; };
 		0580D66629F51AB900A7591D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		05A4F1EF2986015800DC02A7 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		05AA19132965BD2300A33839 /* Plane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Plane.usdz; sourceTree = "<group>"; };
+		E8507ED129F6177A00AC8174 /* Experiences.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experiences.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +120,7 @@
 		05649C7E29A2D59700051348 /* Experiences */ = {
 			isa = PBXGroup;
 			children = (
-				05649C9B29A2D64700051348 /* Experiences.rcproject */,
+				E8507ED129F6177A00AC8174 /* Experiences.rcproject */,
 			);
 			path = Experiences;
 			sourceTree = "<group>";
@@ -225,11 +225,11 @@
 				05509E79296472600030870E /* AppDelegate.swift in Sources */,
 				055AC2C52978364B00B03DA7 /* ListItemView.swift in Sources */,
 				055AC2BF297830BC00B03DA7 /* ContentHeaderView.swift in Sources */,
-				05649C9C29A2D64700051348 /* Experiences.rcproject in Sources */,
 				055A4B1F2974E69000BC3366 /* StartButtonView.swift in Sources */,
 				05543CA02986FC98003BA137 /* IntensityView.swift in Sources */,
 				05543C9E2986F7DC003BA137 /* ExperienceDetailView.swift in Sources */,
 				05A4F1F02986015800DC02A7 /* ListModel.swift in Sources */,
+				E8507ED229F6177A00AC8174 /* Experiences.rcproject in Sources */,
 				054B2DC929AC06B9004C62A8 /* ExperienceModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

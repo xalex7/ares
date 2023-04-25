@@ -11,51 +11,32 @@ import ARKit
 
 struct ExperienceView: View {
     
-    @Environment(\.presentationMode) var presentationMode
-    
-    @ObservedObject var myModel: ExperienceModel
+    @Environment(\.dismiss)
+    var dismiss
+
+    @ObservedObject
+    var myModel: ExperienceModel
 
     var body: some View {
-        VStack {
-            ARViewContainer(activeModel: myModel).edgesIgnoringSafeArea(.all)
-                .overlay (
-                    
-                    VStack {
-                        Spacer()
-                        Text("To Complete \(myModel.expDuration)")
-                    }
-                )
-        }
+        ARViewContainer(activeModel: myModel)
+            .edgesIgnoringSafeArea(.all)
+            .overlay(
+                VStack {
+                    Spacer()
+
+                    Text(String(myModel.expDuration))
+ 
+                }
+            )
         .navigationBarBackButtonHidden(true)
-        .navigationBarItems(leading: Button(action: { presentationMode.wrappedValue.dismiss()}) {
+        .navigationBarItems(leading: Button(action: { dismiss() }) {
             HStack {
                 ExitButton()
             }
         })
         .onDisappear {
-
-            
-        }.onReceive(myModel.$expDuration, perform: {print("HELLLLLLLLL\($0)")})
-            .onReceive(myModel.$expCompleted, perform: {print("expCompleted \($0)")})
-    }
-}
-
-extension ARView: ARCoachingOverlayViewDelegate {
-    
-    
-    func addCoaching(goal: ARCoachingOverlayView.Goal) {
-        
-        let coachingOverlay = ARCoachingOverlayView()
-        coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        coachingOverlay.goal = goal
-        coachingOverlay.session = session
-        coachingOverlay.delegate = self
-        addSubview(coachingOverlay)
-        coachingOverlay.setActive(true, animated: true)
-    }
-    
-    public func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
-        NotificationCenter.default.post(name: Notification.Name("ARCoachingDidDeactivate"), object: nil)
+            myModel.stop()
+        }
     }
 }
 
@@ -63,34 +44,56 @@ struct ARViewContainer: UIViewRepresentable {
     
     var activeModel: ExperienceModel
 
+    class Coordinator: NSObject, ARCoachingOverlayViewDelegate {
+        var activeModel: ExperienceModel
+        var arView: ARView
+
+        init(arView: ARView, activeModel: ExperienceModel) {
+            self.arView = arView
+            self.activeModel = activeModel
+        }
+
+        func addCoaching(goal: ARCoachingOverlayView.Goal) {
+            let coachingOverlay = ARCoachingOverlayView()
+            coachingOverlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            coachingOverlay.goal = goal
+            coachingOverlay.session = arView.session
+            coachingOverlay.delegate = self
+            arView.addSubview(coachingOverlay)
+            coachingOverlay.setActive(true, animated: true)
+        }
+
+        func coachingOverlayViewDidDeactivate(_ coachingOverlayView: ARCoachingOverlayView) {
+            coachingOverlayView.removeFromSuperview()
+            activeModel.startTimer()
+        }
+    }
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(arView: ARView(frame: .zero), activeModel: activeModel)
+    }
+
     func makeUIView(context: Context) -> ARView {
         
         print("HELL")
-        
-        
-        
-        let arView = ARView(frame: .zero)
-        
-        arView.addCoaching(goal: activeModel.activeExperience.coachingGoal)
-        
-        arView.coachingOverlayViewDidDeactivate(ARCoachingOverlayView())
+
+        #if targetEnvironment(simulator)
+        activeModel.startTimer()
+        #else
+        context.coordinator.addCoaching(goal: activeModel.activeExperience.coachingGoal)
+        #endif
+
         
         // Add the item anchor to the scene
-        arView.scene.anchors.append(activeModel.activeScene)
-        
-        NotificationCenter.default.addObserver(forName: Notification.Name("ARCoachingDidDeactivate"), object: nil, queue: nil) { _ in
-            activeModel.startTimer()
-            NotificationCenter.default.removeObserver(self)
-            print("Notification received")
-        }
-        
-        return arView
+        context.coordinator.arView.scene.anchors.append(activeModel.activeScene)
+
+        return context.coordinator.arView
     }
     
     func updateUIView(_ uiView: ARView, context: Context) {}
     
-    static func dismantleUIView(_ uiView: ARView, coordinator: ()) {
-        uiView.session.pause()
+    static func dismantleUIView(_ uiView: ARView, coordinator: Coordinator) {
+        coordinator.arView.session.pause()
     }
     
 }
