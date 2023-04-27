@@ -12,8 +12,7 @@ struct IntensityView: View {
     var body: some View {
         HStack {
             Text("Intensity")
-                .font(.title)
-                .fontWeight(.medium)
+                .font(.title2)
             ForEach(0..<intensityRange) { item in
                 Image(systemName: "circle.fill")
                     .font(.caption)

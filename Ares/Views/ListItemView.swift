@@ -16,23 +16,22 @@ struct ListItemView: View {
     
     var body: some View {
         
-        VStack {
-            HStack (alignment: .center, spacing: 15) {
-                Image(systemName: "photo.circle.fill")
-                    .font(.title)
-                    .foregroundColor(.accentColor)
-                
-                VStack {
+        VStack (alignment: .center, spacing: 15) {
+//            HStack (alignment: .center, spacing: 15) {
+//                Image(systemName: "photo.circle.fill")
+//                    .font(.title)
+//                    .foregroundColor(.accentColor)
+//
+//                VStack {
                     Text(listItem.title)
                         .font(.title)
                         .foregroundColor(.accentColor)
                         .fontWeight(.bold)
-                    Text("Period \(listItem.duartion) Seconds")
+                    Text("Time to complete \(listItem.duartion) Seconds")
                     IntensityView(intensityRange: listItem.intensity)
-                    Text("Completed: \(String(listItem.completed))")
-                        .font(.title2)
-                }
-            }
+
+//                }
+//            }
             Text(listItem.brief)
                 .font(.title2)
         }

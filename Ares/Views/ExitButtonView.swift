@@ -20,6 +20,7 @@ struct ExitButton: View {
                 .foregroundColor(.white)
                 .cornerRadius(2)
                 .shadow(color: Color.black, radius: 1)
+                .animation(.easeIn(duration: 1))
 
     }
 }

@@ -1,0 +1,42 @@
+[
+  {
+    "libraryIdentifier" : "bc2f59875bc90a8ea7f9ef5b719d3348",
+    "format" : "model",
+    "displayName" : "PinkSpider.usdz"
+  },
+  {
+    "libraryIdentifier" : "44c7b8c6057c2db1e01fb59f9aab193f",
+    "format" : "model",
+    "displayName" : "PinkSpider.usdz"
+  },
+  {
+    "libraryIdentifier" : "843c15750fd8c2e920f8028134fedec7",
+    "format" : "model",
+    "displayName" : "StateHomeSpider.usdz"
+  },
+  {
+    "libraryIdentifier" : "dc75819cce33be466ff4cbc65e3abc30",
+    "format" : "model",
+    "displayName" : "MovingHome.usdz"
+  },
+  {
+    "libraryIdentifier" : "e9d44ac6dcca4572731b13609f1a9b77",
+    "format" : "model",
+    "displayName" : "JumpSpider.usdz"
+  },
+  {
+    "libraryIdentifier" : "4c006eafd007451079bdf37bacd3cd92",
+    "format" : "model",
+    "displayName" : "FirstJS.usdz"
+  },
+  {
+    "libraryIdentifier" : "2045a276bcc857a5da27f9dc39f70293",
+    "format" : "model",
+    "displayName" : "SecondJS.usdz"
+  },
+  {
+    "libraryIdentifier" : "0e3ae8f50e235015dab46f4cf4329e49",
+    "format" : "model",
+    "displayName" : "ThirdJS.usdz"
+  }
+]
