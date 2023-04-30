@@ -8,19 +8,25 @@
 import SwiftUI
 
 struct ExperienceListView: View {
+    
+    
     var experienceList = ListModel().list
     var body: some View {
         VStack {
             NavigationView {
-                List(experienceList) { item in
-                    NavigationLink(destination: ExperienceDetailView(experienceItem: item)) {
-                        ListItemView(listItem: item)
+                ZStack {
+                    List(experienceList) { item in
+                        NavigationLink(destination: ExperienceDetailView(experienceItem: item)) {
+                            ListItemView(listItem: item)
+                                .padding()
+                        }
                     }
-                }
+                }.navigationTitle("Experiences")
             }
         }
     }
 }
+
 
 struct ExperienceListView_Previews: PreviewProvider {
     static var previews: some View {

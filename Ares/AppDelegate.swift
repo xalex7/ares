@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         // Use a UIHostingController as window root view controller.
         let window = UIWindow(frame: UIScreen.main.bounds)
+        // window.backgroundColor = .blue
         window.rootViewController = UIHostingController(rootView: contentView)
         self.window = window
         window.makeKeyAndVisible()

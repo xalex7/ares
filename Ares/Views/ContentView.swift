@@ -9,6 +9,9 @@ import SwiftUI
 import RealityKit
 
 struct ContentView : View {
+//    init() {
+//            UINavigationBar.setAnimationsEnabled(false)
+//        }
     var body: some View {
         
         VStack {

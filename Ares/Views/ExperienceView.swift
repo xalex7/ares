@@ -11,15 +11,21 @@ import ARKit
 
 struct ExperienceView: View {
     
-    @Environment(\.dismiss)
-    var dismiss
     
-    @ObservedObject
-    var myModel: ExperienceModel
+    //  @Environment(\.presentationMode) var presentationMode
     
-    @State private var congrats = ["Well done!", "Fantastic!", "Excellent!"]
+    @Environment(\.dismiss) var dismiss
+    
+    @ObservedObject var myModel: ExperienceModel
+    
+    @State private var congrats = ["Well done! 🎊", "Fantastic! ⭐️", "Excellent! 🎉"]
     
     @State private var dismissTimer: Timer?
+    
+    @State private var exitBackgroundOpacity = Color.accentColor.opacity(0)
+    
+    @State private var exitForegroundColor = Color.accentColor
+    
     
     var body: some View {
         ARViewContainer(activeModel: myModel)
@@ -27,12 +33,20 @@ struct ExperienceView: View {
             .overlay(
                 VStack {
                     Spacer()
-                    
-                    Text(myModel.expDuration > 0 ? "Time remaining \(myModel.expDuration)" : congrats.randomElement()!)
-                        .foregroundColor(myModel.expDuration > 0 ? Color.white : Color.green)
-                        .font(myModel.expDuration > 0 ? .title2 : .largeTitle)
-                        .fontWeight(.bold)
-                        .animation(.easeOut(duration: 0.5))
+                    VStack {
+                            Text(myModel.expDuration < 20 && myModel.expDuration > 10 ? "Almost there!" : "")
+                                .foregroundColor(.accentColor)
+                                .font(.title)
+                                .shadow(color: .white, radius: 1)
+                                .animation(.easeOut(duration: 2))
+                        
+                        Text(myModel.expDuration > 0 ? "Time remaining \(myModel.expDuration)" : congrats.randomElement()!)
+                            .foregroundColor(myModel.expDuration > 0 ? Color.white : Color.green)
+                            .font(myModel.expDuration > 0 ? .title2 : .largeTitle)
+                            
+                    }
+                    .fontWeight(.bold)
+                    .animation(.easeOut(duration: 0.3))
                 }
             )
             .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
@@ -45,9 +59,30 @@ struct ExperienceView: View {
                 }
             }
             .navigationBarBackButtonHidden(true)
-            .navigationBarItems(leading: Button(action: { dismiss() }) {
-                HStack {
-                    ExitButton()
+            .navigationBarItems(leading: Button(action: {
+                //                presentationMode.wrappedValue.dismiss()
+                dismiss()
+            }) {
+                VStack {
+                    Text(LocalizedStringKey("Exit Now"))
+                        .foregroundColor(exitForegroundColor)
+                        .onAppear {
+                            withAnimation(.linear(duration: 10)) {
+                                exitForegroundColor = Color.white
+                            }
+                        }
+                        .padding(.horizontal, 20)
+                        .padding(.vertical, 7)
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .background(exitBackgroundOpacity)
+                        .onAppear {
+                            withAnimation(.linear(duration: 10)) {
+                                exitBackgroundOpacity = Color.accentColor.opacity(1)
+                            }
+                        }
+                        .cornerRadius(5)
+                        .shadow(color: Color.accentColor, radius: 1)
                 }
             })
             .onDisappear {

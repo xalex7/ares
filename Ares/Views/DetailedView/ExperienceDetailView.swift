@@ -12,7 +12,7 @@ import OSLog
 struct LazyView<Content: View>: View {
     let content: () -> Content
     @State private var visible = true
-  
+    
     init(_ content: @autoclosure @escaping () -> Content) {
         self.content = content
     }
@@ -22,7 +22,10 @@ struct LazyView<Content: View>: View {
                 content()
             }
         }
-        .onAppear { visible = true }
+        .onAppear {
+            visible = true
+            UITableView.appearance().isScrollEnabled = false
+        }
         .onDisappear { visible = false }
     }
 }
@@ -33,38 +36,37 @@ struct ExperienceDetailView: View {
     
     @State var isExpVisible = false
     @State var experienceModel: ExperienceModel?
-
+    
     @ObservedObject var experienceItem: ListItem
     
     var body: some View {
         
-        VStack (spacing: 20) {
-            ContentHeaderView()
-
-            VStack (spacing: 20) {
-                Image(systemName: "photo.fill")
+        VStack {
+            
+            VStack (spacing: 50) {
                 Text(experienceItem.title)
+                    .font(.largeTitle)
+                    .foregroundColor(.accentColor)
+                    .padding(.top, 10)
+                    .padding(.bottom, 10)
                 Text(experienceItem.description)
+                    .lineSpacing(10)
+                    .padding(.horizontal, 20)
+                Text((UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")) == true ? "✅ Explored!" : "Unexplored" )
+                    .foregroundColor(.accentColor)
                 IntensityView(intensityRange: experienceItem.intensity)
-                Text("Duration \(experienceItem.duartion) seconds")
-                Text((UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")) == true ? "Explored!" : "Unexplored" )
-                //Text("Completed \(String(UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")))")
+                Text("Time: \(experienceItem.duartion) seconds")
+                
             }
-            Spacer()
-            StartButton(buttonText: "Start", buttonColor: .blue) {
+            .font(.system(.title2, design: .rounded))
+            .fontWeight(.semibold)
+
+            StartButton(buttonText: "Start", buttonColor: .accentColor) {
                 isExpVisible.toggle()
             }
+            .padding(.top, 100)
             if let experienceModel {
                 NavigationLink(destination: LazyView( ExperienceView(myModel: experienceModel)), isActive: $isExpVisible) {}
-                    .navigationBarBackButtonHidden(true)
-                    .navigationBarItems(leading: Button(action: { presentationMode.wrappedValue.dismiss()}) {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                            Text("All Experiences")
-                                .font(.title)
-                        }
-                    }
-                    )
             }
         }
         .onAppear {

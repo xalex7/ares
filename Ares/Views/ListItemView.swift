@@ -9,32 +9,25 @@ import SwiftUI
 
 struct ListItemView: View {
     
- // MARK: Doesn't this mean that all 6 experinces are being created?
+    // MARK: Doesn't this mean that all 6 experinces are being created?
     var listItem: ListItem = ListModel().list[0]
     
     
     
     var body: some View {
         
-        VStack (alignment: .center, spacing: 15) {
-//            HStack (alignment: .center, spacing: 15) {
-//                Image(systemName: "photo.circle.fill")
-//                    .font(.title)
-//                    .foregroundColor(.accentColor)
-//
-//                VStack {
-                    Text(listItem.title)
-                        .font(.title)
-                        .foregroundColor(.accentColor)
-                        .fontWeight(.bold)
-                    Text("Time to complete \(listItem.duartion) Seconds")
-                    IntensityView(intensityRange: listItem.intensity)
-
-//                }
-//            }
-            Text(listItem.brief)
-                .font(.title2)
+        VStack (alignment: .center ,spacing: 15) {
+            Text(listItem.title)
+                .font(.title)
+                .foregroundColor(.accentColor)
+            Text("Time \(listItem.duartion) Seconds")
+            Text("\(listItem.anchor) surface")
+            IntensityView(intensityRange: listItem.intensity)
         }
+        .font(.title2)
+        .fontWeight(.bold)
+        
+
     }
 }
 

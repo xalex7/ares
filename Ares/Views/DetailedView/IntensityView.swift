@@ -11,12 +11,11 @@ struct IntensityView: View {
     var intensityRange: Int
     var body: some View {
         HStack {
-            Text("Intensity")
-                .font(.title2)
+            Text("Bravemeter")
             ForEach(0..<intensityRange) { item in
-                Image(systemName: "circle.fill")
-                    .font(.caption)
-                    .foregroundColor(.blue)
+                Text("💪")
+//                    .font(.caption)
+//                    .foregroundColor(.blue)
                     
             }
         }

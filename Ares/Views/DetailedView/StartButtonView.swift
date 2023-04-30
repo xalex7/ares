@@ -38,6 +38,6 @@ struct StartButton: View {
 
 struct AppButton_Previews: PreviewProvider {
     static var previews: some View {
-        StartButton(buttonText:"Start", buttonColor: Color(.blue))
+        StartButton(buttonText:"Start", buttonColor: .accentColor)
     }
 }

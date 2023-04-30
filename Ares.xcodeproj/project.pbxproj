@@ -16,10 +16,8 @@
 		05543C9E2986F7DC003BA137 /* ExperienceDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05543C9D2986F7DC003BA137 /* ExperienceDetailView.swift */; };
 		05543CA02986FC98003BA137 /* IntensityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05543C9F2986FC98003BA137 /* IntensityView.swift */; };
 		055A4B1F2974E69000BC3366 /* StartButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055A4B1E2974E69000BC3366 /* StartButtonView.swift */; };
-		055AC2BF297830BC00B03DA7 /* ContentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2BE297830BC00B03DA7 /* ContentHeaderView.swift */; };
 		055AC2C12978313B00B03DA7 /* ExperienceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2C02978313B00B03DA7 /* ExperienceListView.swift */; };
 		055AC2C52978364B00B03DA7 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2C42978364B00B03DA7 /* ListItemView.swift */; };
-		0580D64729F4B12200A7591D /* ExitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0580D64629F4B12200A7591D /* ExitButtonView.swift */; };
 		0580D66729F51AB900A7591D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0580D66629F51AB900A7591D /* Launch Screen.storyboard */; };
 		05A4F1F02986015800DC02A7 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F1EF2986015800DC02A7 /* ListModel.swift */; };
 		05AA19142965BD2300A33839 /* Plane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 05AA19132965BD2300A33839 /* Plane.usdz */; };
@@ -37,10 +35,8 @@
 		05543C9D2986F7DC003BA137 /* ExperienceDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceDetailView.swift; sourceTree = "<group>"; };
 		05543C9F2986FC98003BA137 /* IntensityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntensityView.swift; sourceTree = "<group>"; };
 		055A4B1E2974E69000BC3366 /* StartButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButtonView.swift; sourceTree = "<group>"; };
-		055AC2BE297830BC00B03DA7 /* ContentHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentHeaderView.swift; sourceTree = "<group>"; };
 		055AC2C02978313B00B03DA7 /* ExperienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceListView.swift; sourceTree = "<group>"; };
 		055AC2C42978364B00B03DA7 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
-		0580D64629F4B12200A7591D /* ExitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitButtonView.swift; sourceTree = "<group>"; };
 		0580D66629F51AB900A7591D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		05A4F1EF2986015800DC02A7 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		05AA19132965BD2300A33839 /* Plane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Plane.usdz; sourceTree = "<group>"; };
@@ -101,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				054B2DCC29AC25EB004C62A8 /* ExperienceView.swift */,
-				0580D64629F4B12200A7591D /* ExitButtonView.swift */,
 				057191D129B29B6A00AE463E /* MainView */,
 				057191D229B29CCE00AE463E /* DetailedView */,
 			);
@@ -129,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				05509E7A296472600030870E /* ContentView.swift */,
-				055AC2BE297830BC00B03DA7 /* ContentHeaderView.swift */,
 				055AC2C02978313B00B03DA7 /* ExperienceListView.swift */,
 				055AC2C42978364B00B03DA7 /* ListItemView.swift */,
 			);
@@ -221,10 +215,8 @@
 				05509E7B296472600030870E /* ContentView.swift in Sources */,
 				055AC2C12978313B00B03DA7 /* ExperienceListView.swift in Sources */,
 				054B2DCD29AC25EB004C62A8 /* ExperienceView.swift in Sources */,
-				0580D64729F4B12200A7591D /* ExitButtonView.swift in Sources */,
 				05509E79296472600030870E /* AppDelegate.swift in Sources */,
 				055AC2C52978364B00B03DA7 /* ListItemView.swift in Sources */,
-				055AC2BF297830BC00B03DA7 /* ContentHeaderView.swift in Sources */,
 				055A4B1F2974E69000BC3366 /* StartButtonView.swift in Sources */,
 				05543CA02986FC98003BA137 /* IntensityView.swift in Sources */,
 				05543C9E2986F7DC003BA137 /* ExperienceDetailView.swift in Sources */,
