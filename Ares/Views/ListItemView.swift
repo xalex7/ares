@@ -16,24 +16,26 @@ struct ListItemView: View {
     
     var body: some View {
         
-        VStack (alignment: .center ,spacing: 15) {
+        VStack (alignment: .center ,spacing: 20) {
             Text(listItem.title)
                 .font(.title)
                 .foregroundColor(.accentColor)
-            Text("Time \(listItem.duartion) Seconds")
+            HStack {
+                Image(systemName: "timer")
+                Text("\(listItem.duartion) Seconds")
+            }
             Text("\(listItem.anchor) surface")
             IntensityView(intensityRange: listItem.intensity)
         }
         .font(.title2)
         .fontWeight(.bold)
-        
 
     }
 }
 
 struct ListItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ListItemView(listItem: ListModel().list[0])
+        ListItemView(listItem: ListModel().list[4])
     }
 }
 

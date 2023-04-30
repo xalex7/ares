@@ -10,13 +10,19 @@ import SwiftUI
 struct IntensityView: View {
     var intensityRange: Int
     var body: some View {
-        HStack {
-            Text("Bravemeter")
-            ForEach(0..<intensityRange) { item in
-                Text("💪")
-//                    .font(.caption)
-//                    .foregroundColor(.blue)
-                    
+        VStack {
+            HStack {
+                Image(systemName: "speedometer")
+                Text("Bravemeter")
+            }
+            
+            HStack {
+                ForEach(0..<intensityRange) { item in
+                    Text("💪")
+    //                    .font(.caption)
+    //                    .foregroundColor(.blue)
+                        
+                }
             }
         }
     }

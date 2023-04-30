@@ -64,7 +64,7 @@ struct ExperienceView: View {
                 dismiss()
             }) {
                 VStack {
-                    Text(LocalizedStringKey("Exit Now"))
+                    Text(LocalizedStringKey("Quit Now"))
                         .foregroundColor(exitForegroundColor)
                         .onAppear {
                             withAnimation(.linear(duration: 10)) {

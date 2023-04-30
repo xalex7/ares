@@ -52,10 +52,13 @@ struct ExperienceDetailView: View {
                 Text(experienceItem.description)
                     .lineSpacing(10)
                     .padding(.horizontal, 20)
-                Text((UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")) == true ? "✅ Explored!" : "Unexplored" )
+                Text((UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")) == true ? "\(Image(systemName: "checkmark.seal.fill")) Explored!" : "Unexplored" )
                     .foregroundColor(.accentColor)
                 IntensityView(intensityRange: experienceItem.intensity)
-                Text("Time: \(experienceItem.duartion) seconds")
+                HStack {
+                    Image(systemName: "timer")
+                    Text("\(experienceItem.duartion) seconds")
+                }
                 
             }
             .font(.system(.title2, design: .rounded))
