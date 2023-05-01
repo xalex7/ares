@@ -16,7 +16,7 @@ struct ListItemView: View {
     
     var body: some View {
         
-        VStack (alignment: .center ,spacing: 20) {
+        VStack (alignment: .center, spacing: 20) {
             Text(listItem.title)
                 .font(.title)
                 .foregroundColor(.accentColor)
@@ -29,7 +29,6 @@ struct ListItemView: View {
         }
         .font(.title2)
         .fontWeight(.bold)
-
     }
 }
 

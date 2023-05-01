@@ -19,9 +19,6 @@ struct IntensityView: View {
             HStack {
                 ForEach(0..<intensityRange) { item in
                     Text("💪")
-    //                    .font(.caption)
-    //                    .foregroundColor(.blue)
-                        
                 }
             }
         }

@@ -30,8 +30,6 @@ struct StartButton: View {
                 .foregroundColor(.white)
                 .padding(.horizontal, 40)
                 .shadow(color: Color.gray, radius: 3)
-                
-
         }
     }
 }

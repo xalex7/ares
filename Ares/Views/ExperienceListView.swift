@@ -12,20 +12,19 @@ struct ExperienceListView: View {
     
     var experienceList = ListModel().list
     var body: some View {
- //       VStack (alignment: .center) {
+        VStack {
             NavigationView {
-                    VStack {
-                        List(experienceList) { item in
-                            NavigationLink(destination: ExperienceDetailView(experienceItem: item)) {
-                                ListItemView(listItem: item)
-                                    .padding()
-                            }
+                VStack {
+                    List(experienceList) { item in
+                        NavigationLink(destination: ExperienceDetailView(experienceItem: item)) {
+                            ListItemView(listItem: item)
+                                .frame(maxWidth: .infinity, alignment: .center)
+                                .padding()
                         }
- 
-                    }.navigationTitle("Experiences")
+                    }
+                }.navigationTitle("Experiences")
             }
-            
- //       }
+        }
     }
 }
 

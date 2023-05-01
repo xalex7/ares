@@ -13,7 +13,6 @@ struct ContentView : View {
 //            UINavigationBar.setAnimationsEnabled(false)
 //        }
     var body: some View {
-        
         VStack {
             ExperienceListView()
         }
