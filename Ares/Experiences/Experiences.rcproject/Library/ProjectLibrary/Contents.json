@@ -38,5 +38,20 @@
     "libraryIdentifier" : "0e3ae8f50e235015dab46f4cf4329e49",
     "format" : "model",
     "displayName" : "ThirdJS.usdz"
+  },
+  {
+    "libraryIdentifier" : "96024e59c5e1fb9ded3cd849e8555209",
+    "format" : "model",
+    "displayName" : "6.usdz"
+  },
+  {
+    "libraryIdentifier" : "2567ce0d68efcea2c70454fe7160a090",
+    "format" : "model",
+    "displayName" : "7.usdz"
+  },
+  {
+    "libraryIdentifier" : "8014743187839d6d203522091d1537e9",
+    "format" : "model",
+    "displayName" : "8.usdz"
   }
 ]

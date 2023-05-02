@@ -36,14 +36,12 @@ struct ExperienceView: View {
                     VStack {
                             Text(myModel.expDuration < 20 && myModel.expDuration > 10 ? "Almost there!" : "")
                                 .foregroundColor(.accentColor)
-                                .font(.title)
-                                .shadow(color: .white, radius: 1)
+                                .font(.largeTitle)
                                 .animation(.easeOut(duration: 2))
                         
                         Text(myModel.expDuration > 0 ? "Time remaining \(myModel.expDuration)" : congrats.randomElement()!)
                             .foregroundColor(myModel.expDuration > 0 ? Color.white : Color.green)
                             .font(myModel.expDuration > 0 ? .title2 : .largeTitle)
-                            
                     }
                     .fontWeight(.bold)
                     .animation(.easeOut(duration: 0.3))
@@ -60,7 +58,6 @@ struct ExperienceView: View {
             }
             .navigationBarBackButtonHidden(true)
             .navigationBarItems(leading: Button(action: {
-                //                presentationMode.wrappedValue.dismiss()
                 dismiss()
             }) {
                 VStack {
