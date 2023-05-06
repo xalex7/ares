@@ -30,7 +30,6 @@ class ExperienceModel: ObservableObject {
             .sink { [unowned self] _ in
                 if expDuration > 0 {
                     expDuration -= 1
-                    print("duration deducted \(expDuration)")
                 } else {
 
                     // MARK: I need to change the value of `Completed` from false to True
@@ -39,7 +38,6 @@ class ExperienceModel: ObservableObject {
                     //expDuration = createdListItem.duartion
 
                     defaults.set(createdListItem.completed, forKey: "completed-\(createdListItem.id)")
-                    print("THIS \(createdListItem.title) and \(createdListItem.completed)")
 
                     timerSubscriber = nil
                 }
