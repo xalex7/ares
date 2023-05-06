@@ -96,7 +96,7 @@ class ExperienceModel: ObservableObject {
         createdListItem = listItem
         activeExperience = listItem.arExp
         activeScene = activeExperience.scene
-        expDuration = listItem.duartion
+        expDuration = listItem.duration
         expCompleted = listItem.completed
 
     }

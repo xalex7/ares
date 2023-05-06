@@ -33,22 +33,23 @@ struct ExperienceView: View {
             .overlay(
                 VStack {
                     Spacer()
-                    VStack {
-                            Text(myModel.expDuration < 20 && myModel.expDuration > 10 ? "Almost there!" : "")
-                                .foregroundColor(.accentColor)
-                                .font(.largeTitle)
-                                .animation(.easeOut(duration: 2))
+                    VStack (spacing: 20) {
+                            Text(myModel.expDuration < 20 && myModel.expDuration > 10 ? "Almost there" : "")
+                            .foregroundColor(.cyan)
+                            .font(.system(size: CGFloat(myModel.expDuration * 2)))
+                                .animation(.easeOut(duration: 5))
+                                .shadow(radius: 20)
                         
                         Text(myModel.expDuration > 0 ? "Time remaining \(myModel.expDuration)" : congrats.randomElement()!)
                             .foregroundColor(myModel.expDuration > 0 ? Color.white : Color.green)
                             .font(myModel.expDuration > 0 ? .title2 : .largeTitle)
+                            
                     }
                     .fontWeight(.bold)
-                    .animation(.easeOut(duration: 0.3))
+                    .animation(.easeOut(duration: 0.2))
                 }
             )
             .onReceive(Timer.publish(every: 1, on: .main, in: .common).autoconnect()) { _ in
-                print("Hey")
                 if myModel.expDuration == 0 {
                     // Wait for 5 seconds then dismiss()
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5) {

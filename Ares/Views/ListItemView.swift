@@ -22,7 +22,7 @@ struct ListItemView: View {
                 .foregroundColor(.accentColor)
             HStack {
                 Image(systemName: "timer")
-                Text("\(listItem.duartion) Seconds")
+                Text("\(listItem.duration) Seconds")
             }
             Text("\(listItem.anchor) surface")
             IntensityView(intensityRange: listItem.intensity)

@@ -42,26 +42,25 @@ struct ExperienceDetailView: View {
     var body: some View {
         
         VStack {
-            
-            VStack (spacing: 30) {
+            VStack (spacing: 50) {
                 Text(experienceItem.title)
                     .font(.largeTitle)
                     .foregroundColor(.accentColor)
                     .padding(.top, 10)
-                    .padding(.bottom, 10)
+                    .padding(.bottom, 30)
                 Text(experienceItem.description)
                     .lineSpacing(10)
                     .padding(.horizontal, 20)
                 IntensityView(intensityRange: experienceItem.intensity)
                 HStack {
                     Image(systemName: "timer")
-                    Text("\(experienceItem.duartion) seconds")
+                    Text("\(experienceItem.duration) seconds")
                 }
             }
             .font(.system(.title2, design: .rounded))
             .fontWeight(.semibold)
             .padding(.bottom, 50)
-            Text((UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")) == true ? "🥇Explored!" : "Unexplored" )
+            Text((UserDefaults.standard.bool(forKey: "completed-\(experienceItem.id)")) == true ? "🥇Explored!" : "\(Image(systemName: "stopwatch")) Unexplored" )
                 .foregroundColor(.accentColor)
                 .font(.system(.title, design: .rounded))
                 .fontWeight(.semibold)
@@ -73,7 +72,7 @@ struct ExperienceDetailView: View {
             if let experienceModel {
                 NavigationLink(destination: LazyView( ExperienceView(myModel: experienceModel)), isActive: $isExpVisible) {}
             }
-            Text(experienceItem.anchor == "Horizontal" ? "Point phone at a large flat surface such as a table" : "Point phone at a large vertical surface such as a wall")
+            Text(experienceItem.anchor == "Horizontal" ? "Point phone at a large flat surface such as a floor" : "Point phone at a large vertical surface such as a wall")
                 .font(.footnote)
                 .padding(.top, 10)
         }
@@ -85,8 +84,6 @@ struct ExperienceDetailView: View {
 
 struct ExperienceDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ExperienceDetailView(experienceItem: ListModel().list[3])
+        ExperienceDetailView(experienceItem: ListModel().list[4])
     }
 }
-
-
