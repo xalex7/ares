@@ -42,7 +42,7 @@ struct ExperienceDetailView: View {
     var body: some View {
         
         VStack {
-            VStack (spacing: 50) {
+            VStack (spacing: 20) {
                 Text(experienceItem.title)
                     .font(.largeTitle)
                     .foregroundColor(.accentColor)

@@ -19,7 +19,6 @@
 		055AC2C12978313B00B03DA7 /* ExperienceListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2C02978313B00B03DA7 /* ExperienceListView.swift */; };
 		055AC2C52978364B00B03DA7 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055AC2C42978364B00B03DA7 /* ListItemView.swift */; };
 		05A4F1F02986015800DC02A7 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A4F1EF2986015800DC02A7 /* ListModel.swift */; };
-		05AA19142965BD2300A33839 /* Plane.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 05AA19132965BD2300A33839 /* Plane.usdz */; };
 		05C869FC29FF8C0600BE86CC /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05C869FB29FF8C0600BE86CC /* Launch Screen.storyboard */; };
 		E8507ED229F6177A00AC8174 /* Experiences.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = E8507ED129F6177A00AC8174 /* Experiences.rcproject */; };
 /* End PBXBuildFile section */
@@ -38,7 +37,6 @@
 		055AC2C02978313B00B03DA7 /* ExperienceListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExperienceListView.swift; sourceTree = "<group>"; };
 		055AC2C42978364B00B03DA7 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		05A4F1EF2986015800DC02A7 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
-		05AA19132965BD2300A33839 /* Plane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = Plane.usdz; sourceTree = "<group>"; };
 		05C869FB29FF8C0600BE86CC /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		E8507ED129F6177A00AC8174 /* Experiences.rcproject */ = {isa = PBXFileReference; lastKnownFileType = file.rcproject; path = Experiences.rcproject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +76,6 @@
 				05509E78296472600030870E /* AppDelegate.swift */,
 				05543C9A2986F48C003BA137 /* Models */,
 				05543C992986F3DE003BA137 /* Views */,
-				05AA19132965BD2300A33839 /* Plane.usdz */,
 				05509E7E296472610030870E /* Assets.xcassets */,
 				05509E80296472610030870E /* Preview Content */,
 			);
@@ -199,7 +196,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				05509E82296472610030870E /* Preview Assets.xcassets in Resources */,
-				05AA19142965BD2300A33839 /* Plane.usdz in Resources */,
 				05C869FC29FF8C0600BE86CC /* Launch Screen.storyboard in Resources */,
 				05509E7F296472610030870E /* Assets.xcassets in Resources */,
 			);
